@@ -1,7 +1,9 @@
 package com.sclabs.multitenantauthorization.Model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "users")
 public class loginSignupModel {
     @Id
     Object id;
@@ -21,6 +23,9 @@ public class loginSignupModel {
         this.userid = userid;
         this.passwordupdatedAt = passwordupdatedAt;
         this.userType = userType;
+    }
+
+    public loginSignupModel() {
     }
 
     public Object getId() {
