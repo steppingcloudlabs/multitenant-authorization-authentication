@@ -16,5 +16,17 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class signupService {
+    private final MongoTemplate mongoTemplate;
 
+    public signupService(MongoTemplate mongoTemplate) {
+        super();
+        this.mongoTemplate = mongoTemplate;
+
+    }
+
+    public List<loginSignupModel> finduser(String email, String userid, String password, String usertype,
+            String companyname) {
+        // Query query = new Query().addCriteria(Criteria.where("email").is(email));
+        // return mongoTemplate.find(query, loginSignupModel.class);
+    }
 }

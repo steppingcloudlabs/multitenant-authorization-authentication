@@ -16,12 +16,12 @@ public class loginRoute {
     loginController control;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String signup(@RequestBody loginSignupModel modeluser) {
+    public String login(@RequestBody loginSignupModel modeluser) {
         // ModelAndView modelAndView = new ModelAndView();
         // userService.loadUserByUsername(String email);
         // modelAndView.addObject("user", user);
         // modelAndView.setViewName("signup");
-        return "result=" + control.finduser(modeluser.getEmail());
+        return "Result:" + control.finduser(modeluser.getEmail());
     }
 
 }

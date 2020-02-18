@@ -16,9 +16,13 @@ public class signupRoute {
     signupController control;
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-   /**
-    * Request Mapping for Signup RestController
-    */
+    public String signup(@RequestBody loginSignupModel modeluser) {
+        // ModelAndView modelAndView = new ModelAndView();
+        // userService.loadUserByUsername(String email);
+        // modelAndView.addObject("user", user);
+        // modelAndView.setViewName("signup");
+        return "Result:" + control.finduser(modeluser.getEmail(), modeluser.getUserid(), modeluser.getPassword(),
+                modeluser.getUserType(), modeluser.getCompanyname());
     }
 
 }
