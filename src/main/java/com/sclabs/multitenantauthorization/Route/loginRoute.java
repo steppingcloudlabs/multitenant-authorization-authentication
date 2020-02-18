@@ -1,6 +1,6 @@
 package com.sclabs.multitenantauthorization.Route;
 
-import com.sclabs.multitenantauthorization.Controller.loginSignupController;
+import com.sclabs.multitenantauthorization.Controller.loginController;
 import com.sclabs.multitenantauthorization.Model.loginSignupModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class loginRoute {
 
     @Autowired
-    loginSignupController control;
+    loginController control;
 
-    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String signup(@RequestBody loginSignupModel modeluser) {
         // ModelAndView modelAndView = new ModelAndView();
         // userService.loadUserByUsername(String email);

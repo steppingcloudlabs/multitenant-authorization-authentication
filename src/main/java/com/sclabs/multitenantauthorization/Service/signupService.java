@@ -15,19 +15,6 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 @Service
-public class loginService {
-
-    private final MongoTemplate mongoTemplate;
-
-    public loginService(MongoTemplate mongoTemplate) {
-        super();
-        this.mongoTemplate = mongoTemplate;
-
-    }
-
-    public List<loginSignupModel> finduser(String email) {
-        Query query = new Query().addCriteria(Criteria.where("email").is(email));
-        return mongoTemplate.find(query, loginSignupModel.class);
-    }
+public class signupService {
 
 }

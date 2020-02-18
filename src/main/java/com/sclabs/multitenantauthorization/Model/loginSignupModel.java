@@ -1,5 +1,8 @@
 package com.sclabs.multitenantauthorization.Model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -28,6 +31,8 @@ public class loginSignupModel {
     public loginSignupModel() {
     }
 
+    @Id
+    @JsonSerialize(using = ToStringSerializer.class)
     public Object getId() {
         return id;
     }
@@ -86,9 +91,13 @@ public class loginSignupModel {
 
     @Override
     public String toString() {
-        return "loginSignupModel [companyname=" + companyname + ", email=" + email + ", id=" + id + ", password="
-                + password + ", passwordupdatedAt=" + passwordupdatedAt + ", userType=" + userType + ", userid="
-                + userid + "]";
+        try {
+            return new com.fasterxml.jackson.databind.ObjectMapper().writerWithDefaultPrettyPrinter()
+                    .writeValueAsString(this);
+        } catch (final com.fasterxml.jackson.core.JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }
