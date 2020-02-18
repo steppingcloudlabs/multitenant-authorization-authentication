@@ -3,7 +3,7 @@ package com.sclabs.multitenantauthorization.Controller;
 import java.util.List;
 
 import com.sclabs.multitenantauthorization.Model.loginSignupModel;
-import com.sclabs.multitenantauthorization.Service.loginSignupService;
+import com.sclabs.multitenantauthorization.Service.loginService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,15 +16,15 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class loginSignupController {
     @Autowired
-    private loginSignupService userService;
+    private loginService userService;
 
     public List<loginSignupModel> finduser(String email) {
         System.out.println(email);
         /**
          * 
          */
-        List<loginSignupModel> tenant = userService.finduser(email);
-        return tenant;
+        List<loginSignupModel> founduser = userService.finduser(email);
+        return founduser;
     };
 
 }

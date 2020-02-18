@@ -4,7 +4,7 @@ package com.sclabs.multitenantauthorization.Service;
 import java.util.List;
 
 import com.sclabs.multitenantauthorization.Model.loginSignupModel;
-import com.sclabs.multitenantauthorization.Repository.loginSignupRepository;
+import com.sclabs.multitenantauthorization.Repository.loginRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -17,16 +17,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class loginSignupService {
-
-    // @Autowired
-    // private loginSignupRepository loginRepository;
-    // @Autowired
-    // private BCryptPasswordEncoder bCryptPasswordEncoder;
+public class loginService {
 
     private final MongoTemplate mongoTemplate;
 
-    public loginSignupService(MongoTemplate mongoTemplate) {
+    public loginService(MongoTemplate mongoTemplate) {
         super();
         this.mongoTemplate = mongoTemplate;
 
@@ -36,11 +31,5 @@ public class loginSignupService {
         Query query = new Query().addCriteria(Criteria.where("email").is(email));
         return mongoTemplate.find(query, loginSignupModel.class);
     }
-
-    // @Bean
-    // public BCryptPasswordEncoder passwordEncoder() {
-    // BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-    // return bCryptPasswordEncoder;
-    // }
 
 }

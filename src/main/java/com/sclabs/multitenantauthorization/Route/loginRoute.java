@@ -4,14 +4,13 @@ import com.sclabs.multitenantauthorization.Controller.loginSignupController;
 import com.sclabs.multitenantauthorization.Model.loginSignupModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class loginSignupRoute {
+public class loginRoute {
 
     @Autowired
     loginSignupController control;
