@@ -15,8 +15,7 @@ import org.springframework.util.Assert;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoDatabase;
 
-
-public class MultitenantMongo extends SimpleMongoClientDbFactory{
+public class MultitenantMongo extends SimpleMongoClientDbFactory {
 
 	private final String defaultName;
 	private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(MultitenantMongo.class);
@@ -24,13 +23,13 @@ public class MultitenantMongo extends SimpleMongoClientDbFactory{
 	private MongoTemplate mongoTemplate;
 	private static final ThreadLocal<String> dbName = new ThreadLocal<String>();
 	private static final HashMap<String, Object> databaseIndexMap = new HashMap<String, Object>();
-   
 
-	
 	public MultitenantMongo(MongoClient mongoClient, String databaseName) {
 		super(mongoClient, databaseName);
-		logger.debug("Instantiating " + MultitenantMongo.class.getName() + " with default database name: " + databaseName);
-		System.out.println("Instantiating " + MultitenantMongo.class.getName() + " with default database name: " + databaseName);
+		logger.debug(
+				"Instantiating " + MultitenantMongo.class.getName() + " with default database name: " + databaseName);
+		System.out.println(
+				"Instantiating " + MultitenantMongo.class.getName() + " with default database name: " + databaseName);
 		this.defaultName = databaseName;
 
 	}
@@ -45,7 +44,8 @@ public class MultitenantMongo extends SimpleMongoClientDbFactory{
 		logger.debug("Switchin to database: " + databaseName);
 		System.out.println("Switchin to database: " + databaseName);
 		dbName.set(databaseName);
-		System.out.println("Switched to database: " + databaseName);
+
+		System.out.println("Switched to database: " + dbName.get());
 	}
 
 	public static void clearDatabaseNameForCurrentThread() {
@@ -103,9 +103,9 @@ public class MultitenantMongo extends SimpleMongoClientDbFactory{
 	private void checkForAndCreateIndexes(final MongoPersistentEntityIndexResolver indexResolver,
 			final BasicMongoPersistentEntity<?> persistentEntity) {
 
-		if(persistentEntity.findAnnotation(Document.class) != null) {
-			for(IndexDefinition indexDefinitionHolder: indexResolver.resolveIndexFor(persistentEntity.getType())) {
-				
+		if (persistentEntity.findAnnotation(Document.class) != null) {
+			for (IndexDefinition indexDefinitionHolder : indexResolver.resolveIndexFor(persistentEntity.getType())) {
+
 				this.mongoTemplate.indexOps(persistentEntity.getType()).ensureIndex(indexDefinitionHolder);
 			}
 		}
