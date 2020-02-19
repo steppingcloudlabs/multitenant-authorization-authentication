@@ -26,7 +26,7 @@ import org.springframework.data.annotation.Id;
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 @Document(collection = "masters")
-public class MasterModel {
+public class masterdataModel {
 
     @Id
     ObjectId Id;
@@ -182,7 +182,7 @@ public class MasterModel {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        final MasterModel other = (MasterModel) obj;
+        final masterdataModel other = (masterdataModel) obj;
         if (Id == null) {
             if (other.Id != null)
                 return false;
