@@ -7,11 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
-import io.github.kaiso.relmongo.annotation.CascadeType;
-import io.github.kaiso.relmongo.annotation.FetchType;
-import io.github.kaiso.relmongo.annotation.JoinProperty;
-import io.github.kaiso.relmongo.annotation.OneToMany;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,7 +24,7 @@ import org.springframework.data.annotation.Id;
 public class masterdataModel {
 
     @Id
-    ObjectId Id;
+    ObjectId id;
     String company_id;
     String company_name;
     String client_id;
@@ -48,11 +43,11 @@ public class masterdataModel {
     @Id
     @JsonSerialize(using = ToStringSerializer.class)
     public ObjectId getId() {
-        return Id;
+        return id;
     }
 
-    public void setId(final ObjectId id) {
-        Id = id;
+    public void setId(final ObjectId Id) {
+        id = Id;
     }
 
     public String getCompany_id() {
@@ -159,7 +154,7 @@ public class masterdataModel {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((Id == null) ? 0 : Id.hashCode());
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((client_id == null) ? 0 : client_id.hashCode());
         result = prime * result + ((company_admin_contact_email == null) ? 0 : company_admin_contact_email.hashCode());
         result = prime * result + ((company_id == null) ? 0 : company_id.hashCode());
@@ -183,10 +178,10 @@ public class masterdataModel {
         if (getClass() != obj.getClass())
             return false;
         final masterdataModel other = (masterdataModel) obj;
-        if (Id == null) {
-            if (other.Id != null)
+        if (id == null) {
+            if (other.id != null)
                 return false;
-        } else if (!Id.equals(other.Id))
+        } else if (!id.equals(other.id))
             return false;
         if (client_id == null) {
             if (other.client_id != null)
