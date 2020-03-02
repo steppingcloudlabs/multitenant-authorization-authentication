@@ -7,7 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "users")
-public class loginSignupModel {
+public class Users {
     @Id
     Object id;
     private String email;
@@ -17,7 +17,7 @@ public class loginSignupModel {
     private String passwordupdatedAt;
     private String userType;
 
-    public loginSignupModel(Object id, String email, String password, String companyname, String userid,
+    public Users(Object id, String email, String password, String companyname, String userid,
             String passwordupdatedAt, String userType) {
         this.id = id;
         this.email = email;
@@ -28,7 +28,7 @@ public class loginSignupModel {
         this.userType = userType;
     }
 
-    public loginSignupModel() {
+    public Users() {
     }
 
     @Id

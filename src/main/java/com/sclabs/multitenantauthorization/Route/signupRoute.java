@@ -2,7 +2,7 @@ package com.sclabs.multitenantauthorization.Route;
 
 import com.sclabs.multitenantauthorization.Config.MultitenantMongo;
 import com.sclabs.multitenantauthorization.Controller.signupController;
-import com.sclabs.multitenantauthorization.Model.loginSignupModel;
+import com.sclabs.multitenantauthorization.Model.Users;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -23,7 +23,7 @@ public class signupRoute {
 	MongoTemplate mongoTemplate;
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String signup(@RequestBody loginSignupModel modeluser) {
+    public String signup(@RequestBody Users modeluser) {
         // ModelAndView modelAndView = new ModelAndView();
         // userService.loadUserByUsername(String email);
         // modelAndView.addObject("user", user);
